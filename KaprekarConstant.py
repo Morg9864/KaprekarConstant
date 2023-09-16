@@ -1,16 +1,15 @@
-# reverse => 521 -> 125
+# reverse
 # eligibility => hundreds > tens > units
-# prove1089 
-# finalProof 
 
 def reverse(number):
+    
     reversed_number = 0
-
+    
     while number > 0:
         digit = number % 10
         reversed_number = reversed_number * 10 + digit
         number = number // 10
-
+        
     return reversed_number
 
 def eligibility(number):
@@ -20,10 +19,12 @@ def eligibility(number):
     
     if not hundreds > tens > units:
         return False
-    
+        
     return True
 
+# 521 
 def prove1089(number):
+    
     if not eligibility(number):
         return -1
     
@@ -36,14 +37,14 @@ def prove1089(number):
     
     return 1
 
+# For every 3-digits number eligible
 def finalProof():
     
-    for number in range(100, 999):
-        if prove1089(number) == -2:
-            print("The video was incorrect")
-            return False
+    for num in range (100, 999):
+        if prove1089(num) == -2:
+            print("Sorry guys, the video was incorrect because of the exception : " + str(num))
+            break
         
     print("Every eligible number has passed the algorithm")
-    return True
-
+        
 finalProof()
